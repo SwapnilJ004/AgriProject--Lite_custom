@@ -23,6 +23,12 @@ class_preventive_measures = ["Your crop is healthy" ,  "Please consult the local
 img_rows, img_cols = 224, 224
 image_size = [224, 224, 3]
 
+# Load TFLite model globally
+interpreter = tf.lite.Interpreter(model_path="model.tflite")
+interpreter.allocate_tensors()
+input_details = interpreter.get_input_details()
+output_details = interpreter.get_output_details()
+
 
 def get_model():
     global model
@@ -47,13 +53,16 @@ def check(path):
     # prediction
     img = load_img(path, target_size=image_size)
     x = img_to_array(img)
-    x = np.expand_dims(x, axis=0)
-    x = x.reshape(-1, 224, 224, 3)
-    x = x.astype('float32') / 255
-    z = model.predict(x)
-    index = np.argmax(z)
+    x = np.expand_dims(x, axis=0).astype('float32') / 255.0
 
-    accuracy = int(np.array(z).max() * 100)
+    interpreter.set_tensor(input_details[0]['index'], x)
+    interpreter.invoke()
+
+    output = interpreter.get_tensor(output_details[0]['index'])
+    index = np.argmax(output)
+    accuracy = int(np.max(output) * 100)
+
+    accuracy = int(np.array(output).max() * 100)
     return [index, accuracy]
 
 

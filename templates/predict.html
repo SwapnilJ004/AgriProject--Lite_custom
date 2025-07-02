@@ -68,6 +68,54 @@
         padding: 10px;
       }
 
+      
+    .developer {
+      display: inline-block;
+      height: 100px;
+      width: 120px;
+      text-align: center;
+    }
+
+    #developed-text {
+      margin: 0px;
+      margin-left: 2px;
+      padding: 0px;
+    }
+
+    #logo-list {
+      margin-top: 20px;
+      padding-left: 10px;
+    }
+
+    .logo {
+      margin-left: 6px;
+      height: 50px;
+      width: 50px;
+      background-image: url(../static/images/Agrihub_logo.png);
+      background-size: cover;
+    }
+
+    .agrihub_logo-div {
+      margin-left: 10px;
+      margin-top: 0px;
+      gap: 1rem;
+    }
+
+    .agrihub-text {
+      color: black;
+      display: flex;
+      padding: 4px 4px 4px 2px;
+      font-weight: 600;
+    }
+
+    #agri {
+      color: #2c8b3d;
+    }
+
+    #hub {
+      color: #2e539e;
+    }
+
     </style>
 </head>
 <body>
@@ -85,7 +133,7 @@
           <p><b>Disease found : </b>{{ disease_name }}</p>
           <p><b>Result Confidence : </b>{{ accuracy }}%</p>
           <p><b>Common Cure : </b>{{ preventive_measures }}</p>
-          <div class="try-next"> <a href="{{ url_for('home') }}">Try Next One</a></div>
+          <div class="try-next"> <a href="{{ url_for('home') }}"><b>Try Next One</b></a></div>
         </div>
       </div>
 
@@ -94,12 +142,20 @@
   </div>
   
   <div class="footer">
-    <p>Developed By:</p>
-    <ul>
-      <a href="https://agrihub.iiti.ac.in/" target="_blank">AgriHub</a>
-       
-    </ul>
+    <div class="developer">
+      <p id="developed-text"><b>Developed By:</b></p>
+      <ul id="logo-list">
+        <div class="agrihub_logo-div">
+          <div class="logo"></div>
+          <a href="https://agrihub.iiti.ac.in/" class="agrihub-text" target="_blank">
+            <div id="agri">Agri</div>
+            <div id="hub">Hub</div>
+          </a></li>
+        </div>
+      </ul>
+    </div>
   </div>
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
