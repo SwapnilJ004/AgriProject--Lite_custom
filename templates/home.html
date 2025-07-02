@@ -23,6 +23,14 @@
       padding: 20px;
     }
 
+    .model-details {
+      font-size: 2.95rem;
+    }
+
+    .model-desc {
+      color: #b3b3b3;
+    }
+
     .container {
       text-align: center;
     }
@@ -74,7 +82,6 @@
     .example img {
       padding: 10px;
     }
-
 
     .footer {
       background: #f8f8f8;
@@ -168,7 +175,8 @@
       </div>
     </div>
     <div class="text-center file-input-container hide">
-      <h1 class="display-4" style="font-style:'Helvetica'">Soyabean Disease Detection model</h1>
+      <h4 class="model-details" style="font-family:'system-ui'">Soyabean Disease Detection model</h4>
+      <p class="model-desc"></p>
       <br>
       <br>
       <form action="/predict" method="post" enctype="multipart/form-data">
