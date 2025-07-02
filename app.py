@@ -66,7 +66,7 @@ def check(path):
     return [index, accuracy]
 
 
-get_model()
+# get_model()
 
 
 @app.route("/")
