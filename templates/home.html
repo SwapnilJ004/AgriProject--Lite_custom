@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agri - Disease Detection</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style type="text/css">
+    .hide {
+      display: none;
+    }
+
+    html body {
+      font-family: sans-serif;
+    }
+
+    .header {
+      background: #f8f8f8;
+      margin-bottom: 50px;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .dropdown-menu {
+      padding: 1rem;
+    }
+
+    .dropdown-item:hover {
+      cursor: pointer;
+    }
+
+    .file-input-container {
+      margin: 100px 0px;
+    }
+
+    .file-input {
+      border: 2px solid #cdcdcd;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .file-submit {
+      border-radius: 20px;
+      border: none;
+      padding: 10px 50px;
+      box-shadow: 1px 1px 3px #f8f8f8;
+      margin: 10px;
+    }
+
+    .file-submit:hover {
+      background: green;
+      color: white;
+    }
+
+    .sample_image {
+      box-shadow: 1px 1px 5px white;
+      border-radius: 2px;
+    }
+
+    .example {
+      margin: 50px 0px;
+    }
+
+    .example p {
+      color: #b3b3b3;
+    }
+
+    .example img {
+      padding: 10px;
+    }
+
+
+    .footer {
+      background: #f8f8f8;
+      padding: 50px 20px;
+    }
+
+    .footer ul {
+      list-style-type: none;
+    }
+
+    .footer ul li {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ffffff;
+      border-radius: 50px;
+      margin: 5px;
+    }
+
+    .footer ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="header">
+    <h1 class="text-center title">Soybean Crop Disease Diagnosis</h1>
+    <p class="text-center description">Soybean Disease Detection Using Deep Learning</p>
+  </div>
+
+  <div class="container">
+    <div class="dropdown">
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Select Model
+        </button>
+         <div class="dropdown-menu">
+          <a id='dropdown' class="dropdown-item" >Soyabean Disease Detection</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center file-input-container hide">
+      <h1 class="display-4" style="font-style:'Helvetica'">Soyabean Disease Detection model</h1>
+      <br>
+      <br>
+      <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" class="file-input" placeholder="Pick a File" required />
+        </br>
+        <input type="submit" value="Predict" class="file-submit" />
+      </form>
+      <p>{{ error }}</p>
+    </div>
+
+    <div class="text-center example">
+      <p>* Image should only contain the diseased part as shown below.</p>
+
+      <a href="#" target="blank">
+        <img src="static/sample_image_1.jpg" width="200px" height="200px" class="sample_image" title="SampleImage"
+          alt="Image">
+      </a>
+      <a href="#" target="blank">
+        <img src="static/sample_image_2.jpg" width="200px" height="200px" class="sample_image" title="SampleImage"
+          alt="Image">
+      </a>
+      <a href="#" target="blank">
+        <img src="static/sample_image_3.jpg" width="200px" height="200px" class="sample_image" title="SampleImage"
+          alt="Image">
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>Developed By:</p>
+    <ul>
+      <a href="https://agrihub.iiti.ac.in/" target="_blank"> AgriHub</a></li>
+    </ul>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="../static/custom_scripts.js"></script>
+</body>
+
+</html>
