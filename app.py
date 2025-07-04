@@ -77,6 +77,8 @@ def home():
 
 @app.route("/predict", methods=['GET', 'POST'])
 def predict():
+    import time
+    start_time = time.time()
     if request.method == 'POST':
         file = request.files['file']
         if (file):
@@ -102,9 +104,9 @@ def predict():
                         
 
                     #disease_name = class_labels[result[0]]
-
-                    
-
+                    end_time = time.time()
+                    execution_time = end_time - start_time
+                    print(f"Execution time: {execution_time} seconds")
                     return render_template('predict.html',
                                            disease_name=disease_name,
                                            user_image=file_path,
@@ -115,7 +117,8 @@ def predict():
 
         else:
             eMessage = "Please Upload the diseased file"
-            return redirect(url_for('predict', error = eMessage))
+                    
+        return redirect(url_for('predict', error = eMessage))
 
     elif (request.method == 'GET'):
         # redirect(url_for("home"))
